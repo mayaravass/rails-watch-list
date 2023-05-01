@@ -1,10 +1,5 @@
-<h1>New bookmark</h1>
-<%# parei nesta etapa do exercício, não está buscando as associações %>
-<%= simple_form_for @bookmark do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :list %>
-  <%= f.association :movie %>
-  <%= f.button :submit %>
-<% end %>
+<h1> Add a movie into <%= @list.name %> list</h1>
+
+<%= render 'form' %>
 
 <%= link_to 'Back', list_path(@list), class: "btn btn-primary" %></td>

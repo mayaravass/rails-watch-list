@@ -2,15 +2,28 @@
 
 <h2><%= @list.name %></h2>
 
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Details</strong>
-  <%= @list.movies.each do |movie| %>
-    <%= movie.title %>
+<% if @list.movies.present? %>
+    <ul>
+    <% @list.movies.each do |movie| %>
+       <li>
+          <div><%= movie.title %></div>
 
-  <% end %>
-</p>
+          <div><%= movie.rating %></div>
 
+          <div><%= movie.overview %></div>
+
+          <div><%= movie.poster_url %></div>
+
+          <div>"<%= movie.bookmarks.first.comment %> (<%= link_to 'delete',
+          bookmark_path(movie.bookmarks.first),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>)</div>
+          
+        </li>
+    <% end %>
+    </ul>
+<% else %>
+    <h3>You don't have any movies added yet.</h3>
+<% end %>
 
 <%= link_to 'Back', lists_path, class: "btn btn-primary" %></td>
-<%= link_to 'New bookmark', new_list_bookmark_path(@list), class: "btn btn-primary" %></td>
+<%= link_to 'Add Movie', new_list_bookmark_path(@list), class: "btn btn-success" %></td>
