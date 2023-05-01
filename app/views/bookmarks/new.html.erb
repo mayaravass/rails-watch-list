@@ -1,5 +1,15 @@
-<h1> Add a movie into <%= @list.name %> list</h1>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
 
-<%= render 'form' %>
+        <h1> Add a movie: <%= @list.name %> list</h1>
 
-<%= link_to 'Back', list_path(@list), class: "btn btn-primary" %></td>
+        <%= render 'form' %>
+
+        <%= link_to 'Back', list_path(@list), class: "btn btn-primary my-1" %>
+
+      </div>
+    </div>
+  </div>
+</div>
